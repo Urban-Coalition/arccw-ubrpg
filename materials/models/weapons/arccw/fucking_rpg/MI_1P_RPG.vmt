@@ -1,0 +1,10 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models\weapons\arccw\fucking_rpg\t_1p_rpg_d"
+	"$bumpmap" "models\weapons\arccw\fucking_rpg\t_1p_rpg_n"
+
+	"$phong" 						"1"
+	"$phongboost"					"1"
+	"$phongexponent"				"10"
+	"$nocull" 1
+}
