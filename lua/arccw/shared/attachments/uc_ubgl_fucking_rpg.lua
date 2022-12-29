@@ -1,13 +1,12 @@
-att.PrintName = "fucking underbarrel rpg"
-att.AbbrevName = "fucking rpg"
+att.PrintName = "URBPG Underslung Rocket Launcher"
+att.AbbrevName = "URBPG Rocket Launcher"
 att.Icon = Material("entities/att/rpega.png", "mips smooth")
-att.Description = "bla bla"
+att.Description = "Selectable underslung rocket launcher. "
 
 att.SortOrder = -100000
 
 att.AutoStats = true
 att.Desc_Pros = {
-    "uc.ubgl"
 }
 att.Slot = "uc_ubgl"
 att.ExcludeFlags = {"uc_noubgl"}
@@ -37,12 +36,6 @@ att.UBGL_ClipSize = 1
 att.LHIK_GunDriver = 2
 att.LHIK_CamDriver = 3
 
-att.Hook_ModifyAttBodygroups = function(wep, data)
-    if wep:GetBuff_Override("UC_UseClassicM203Mount") then
-        -- data.element.Model:SetBodygroup(1, 1)
-    end
-end
-
 local function Ammo(wep)
     return wep:GetOwner():GetAmmoCount("smg1_grenade")
 end
@@ -54,9 +47,8 @@ local function uglbglmodel(wep, owner)
     
     for i, k in pairs(wep.Attachments) do
         -- PrintTable(k)
-        if k.Installed == "uc_ubgl_fucking_rpgl" then
-            lhik_model = k.VElement.Model
-            print(k.VElement.Model)
+        if k.Installed == "uc_ubgl_fucking_rpg" then
+            lhik_model = k
         end
     end
     if !IsValid(lhik_model) then return owner end
