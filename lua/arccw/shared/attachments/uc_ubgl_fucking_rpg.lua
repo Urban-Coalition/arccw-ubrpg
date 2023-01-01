@@ -107,12 +107,13 @@ att.UBGL_Fire = function(wep, ubgl)
     wep:MyEmitSound(")^/arccw_uc/common/40mm/fire-dist-0" .. math.random(1, 6) .. ".ogg", 149, 100, 0.5, CHAN_BODY)
     wep:MyEmitSound(")^/arccw_uc/common/40mm/mech-0" .. math.random(1, 6) .. ".ogg", 149, 100, 0.5, CHAN_AUTO)
 
-
-	local d = DamageInfo()
-	d:SetDamage(math.random(30, 60))
-	d:SetAttacker(owner)
-	d:SetDamageType(DMG_BURN) 
-    owner:TakeDamageInfo(d)
+	if SERVER then
+		local d = DamageInfo()
+		d:SetDamage(math.random(30, 60))
+		d:SetAttacker(owner)
+		d:SetDamageType(DMG_BURN) 
+		owner:TakeDamageInfo(d)
+	end
     
     -- print(uglbglmodel(wep, owner))
     -- smoke_exhaust_01
