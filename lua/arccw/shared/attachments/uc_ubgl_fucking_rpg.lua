@@ -103,9 +103,14 @@ att.UBGL_Fire = function(wep, ubgl)
     if SERVER then
         proj.Damage = 999
     end
-    wep:MyEmitSound(")^/arccw_uc/common/40mm/fire-0" .. math.random(1, 6) .. ".ogg", 100, 100, 1, CHAN_WEAPON)
-    wep:MyEmitSound(")^/arccw_uc/common/40mm/fire-dist-0" .. math.random(1, 6) .. ".ogg", 149, 100, 0.5, CHAN_BODY)
-    wep:MyEmitSound(")^/arccw_uc/common/40mm/mech-0" .. math.random(1, 6) .. ".ogg", 149, 100, 0.5, CHAN_AUTO)
+
+    local blast =     "arccw_uc/common/rocket/fire-01.ogg", "arccw_uc/common/rocket/fire-02.ogg", "arccw_uc/common/rocket/fire-03.ogg", "arccw_uc/common/rocket/fire-04.ogg", "arccw_uc/common/rocket/fire-05.ogg", "arccw_uc/common/rocket/fire-06.ogg"
+    local tail =     "arccw_uc/common/rocket/fire-dist-01.ogg", "arccw_uc/common/rocket/fire-dist-02.ogg", "arccw_uc/common/rocket/fire-dist-03.ogg", "arccw_uc/common/rocket/fire-dist-04.ogg", "arccw_uc/common/rocket/fire-dist-05.ogg", "arccw_uc/common/rocket/fire-dist-06.ogg"
+    local mech =     "arccw_uc/common/rocket/mech-01.ogg", "arccw_uc/common/rocket/mech-02.ogg", "arccw_uc/common/rocket/mech-03.ogg", "arccw_uc/common/rocket/mech-04.ogg", "arccw_uc/common/rocket/mech-05.ogg", "arccw_uc/common/rocket/mech-06.ogg"
+
+    wep:MyEmitSound(blast, 100, 100, 1, CHAN_WEAPON)
+    wep:MyEmitSound(tail, 149, 100, 0.8, CHAN_BODY)
+    wep:MyEmitSound(mech, 149, 100, 0.6, CHAN_AUTO)
 
 	if SERVER then
 		local d = DamageInfo()
