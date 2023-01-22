@@ -144,15 +144,24 @@ att.UBGL_Reload = function(wep, ubgl)
 
     wep:SetNextSecondaryFire(CurTime() + 4.6)
 
+    local common = ")^/arccw_uc/common/"
+    local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}
+    local ratel = {common .. "rattle1.ogg", common .. "rattle2.ogg", common .. "rattle3.ogg"}
+
     wep:DoLHIKAnimation("reload", 4.6)
     wep:PlaySoundTable({
-        {s = { "arccw_uc/common/rattle1.ogg", "arccw_uc/common/rattle2.ogg", "arccw_uc/common/rattle3.ogg" }, t = 0},
-        -- {s = "arccw_uc/common/40mm/203open.ogg", t = 0.2},
-        -- {s = "arccw_uc/common/magpouch_replace_small.ogg", t = 0.9},
-        -- {s = "arccw_uc/common/40mm/203insert.ogg", t = 1.2},
-        -- {s = "arccw_uc/common/shoulder.ogg", t = 1.5},
-        -- {s = "arccw_uc/common/40mm/203close.ogg", t = 1.7},
-        -- {s = "arccw_uc/common/shoulder.ogg", t = 2.3},
+        {s = ratel, t = 0},
+        {s = "arccw_uc/common/magpouch_replace_small.ogg", t = 0.9},
+        {s = rottle, t = 1.0},
+        {s = "arccw_uc/common/rocket/tap.ogg", t = 1.9},
+        {s = "arccw_uc/common/rocket/slide1.ogg", t = 2.0},
+        {s = rottle, t = 2.1},
+        {s = "arccw_uc/common/rocket/slide2.ogg", t = 2.8},
+        {s = rottle, t = 2.9},
+        {s = "arccw_uc/common/rocket/insert.ogg", t = 3.2},
+        {s = rottle, t = 3.3},
+        {s = "arccw_uc/common/rocket/cock.ogg", t = 4.0},
+        {s = ratel, t = 3.8},
     })
 
     local reserve = Ammo(wep)
