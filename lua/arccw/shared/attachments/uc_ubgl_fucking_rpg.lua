@@ -1,7 +1,7 @@
 att.PrintName = "URBPG Underslung Rocket Launcher"
 att.AbbrevName = "URBPG Rocket Launcher"
 att.Icon = Material("entities/att/rpega.png", "mips smooth")
-att.Description = "Selectable underslung rocket launcher. "
+att.Description = "85x40mm selectable underslung rocket-propelled grenade launcher."
 
 att.SortOrder = -100000
 
