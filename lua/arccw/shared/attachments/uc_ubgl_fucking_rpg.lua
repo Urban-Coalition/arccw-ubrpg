@@ -92,6 +92,11 @@ att.Hook_OnDeselectUBGL = function(wep)
     })
 end
 
+
+local blast =     "arccw_uc/common/rocket/fire-01.ogg", "arccw_uc/common/rocket/fire-02.ogg", "arccw_uc/common/rocket/fire-03.ogg", "arccw_uc/common/rocket/fire-04.ogg", "arccw_uc/common/rocket/fire-05.ogg", "arccw_uc/common/rocket/fire-06.ogg"
+local tail =     "arccw_uc/common/rocket/fire-dist-01.ogg", "arccw_uc/common/rocket/fire-dist-02.ogg", "arccw_uc/common/rocket/fire-dist-03.ogg", "arccw_uc/common/rocket/fire-dist-04.ogg", "arccw_uc/common/rocket/fire-dist-05.ogg", "arccw_uc/common/rocket/fire-dist-06.ogg"
+local mech =     "arccw_uc/common/rocket/mech-01.ogg", "arccw_uc/common/rocket/mech-02.ogg", "arccw_uc/common/rocket/mech-03.ogg", "arccw_uc/common/rocket/mech-04.ogg", "arccw_uc/common/rocket/mech-05.ogg", "arccw_uc/common/rocket/mech-06.ogg"
+
 att.UBGL_Fire = function(wep, ubgl)
     if wep:Clip2() <= 0 then return end
 
@@ -103,11 +108,7 @@ att.UBGL_Fire = function(wep, ubgl)
     if SERVER then
         proj.Damage = 999
     end
-
-    local blast =     "arccw_uc/common/rocket/fire-01.ogg", "arccw_uc/common/rocket/fire-02.ogg", "arccw_uc/common/rocket/fire-03.ogg", "arccw_uc/common/rocket/fire-04.ogg", "arccw_uc/common/rocket/fire-05.ogg", "arccw_uc/common/rocket/fire-06.ogg"
-    local tail =     "arccw_uc/common/rocket/fire-dist-01.ogg", "arccw_uc/common/rocket/fire-dist-02.ogg", "arccw_uc/common/rocket/fire-dist-03.ogg", "arccw_uc/common/rocket/fire-dist-04.ogg", "arccw_uc/common/rocket/fire-dist-05.ogg", "arccw_uc/common/rocket/fire-dist-06.ogg"
-    local mech =     "arccw_uc/common/rocket/mech-01.ogg", "arccw_uc/common/rocket/mech-02.ogg", "arccw_uc/common/rocket/mech-03.ogg", "arccw_uc/common/rocket/mech-04.ogg", "arccw_uc/common/rocket/mech-05.ogg", "arccw_uc/common/rocket/mech-06.ogg"
-
+	
     wep:MyEmitSound(blast, 100, 100, 1, CHAN_WEAPON)
     wep:MyEmitSound(tail, 149, 100, 0.8, CHAN_BODY)
     wep:MyEmitSound(mech, 149, 100, 0.6, CHAN_AUTO)
@@ -138,15 +139,15 @@ att.UBGL_Fire = function(wep, ubgl)
     wep:DoEffects()
 end
 
+local common = ")/arccw_uc/common/"
+local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}
+local ratel = {common .. "rattle1.ogg", common .. "rattle2.ogg", common .. "rattle3.ogg"}
+
 att.UBGL_Reload = function(wep, ubgl)
     if wep:Clip2() >= 1 then return end
     if Ammo(wep) <= 0 then return end
 
     wep:SetNextSecondaryFire(CurTime() + 4.6)
-
-    local common = ")^/arccw_uc/common/"
-    local rottle = {common .. "cloth_1.ogg", common .. "cloth_2.ogg", common .. "cloth_3.ogg", common .. "cloth_4.ogg", common .. "cloth_6.ogg", common .. "rattle.ogg"}
-    local ratel = {common .. "rattle1.ogg", common .. "rattle2.ogg", common .. "rattle3.ogg"}
 
     wep:DoLHIKAnimation("reload", 4.6)
     wep:PlaySoundTable({
